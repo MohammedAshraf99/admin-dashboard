@@ -1,0 +1,36 @@
+<nav class="flex items-center bg-white rounded-lg m-2 h-20">
+  <button
+    (click)="showSideBar()"
+    class="flex flex-col gap-2 w-8 h-10 sm:hidden rounded justify-center ml-3"
+  >
+    <div class="border"></div>
+    <div class="border"></div>
+    <div class="border"></div>
+  </button>
+
+  <div [ngClass]="{ hidden: (Checklogin() | async) }" class="sm:block flex-1">
+    <app-search></app-search>
+  </div>
+
+  @if((Checklogin()|async)){ 
+  <div class="w-full md:w-auto flex items-center justify-between m-2">
+    <app-profile></app-profile>
+    <button
+      (click)="logout()"
+      class="mr-10 py-2 px-4 rounded text-white bg-blue-600"
+    >
+      logout
+    </button>
+  </div>
+  }@else{
+  <div class="mr-10">
+    <button
+      (click)="login()"
+      class="mr-10 py-2 px-4 rounded text-white bg-blue-600"
+    >
+      login
+    </button>
+  </div>
+
+  }
+</nav>

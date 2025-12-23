@@ -1,0 +1,20 @@
+<div class="bg-white p-4 rounded-lg mt-2 h-96">
+  <section class="flex justify-between m-3">
+    <div>
+      <h3>
+        <ng-content select="[name]"></ng-content>
+      </h3>
+    </div>
+    <div>
+       <ng-content select="[li]"></ng-content>
+    </div>
+  </section>
+  <canvas
+    style="height: 90%"
+    baseChart
+    [data]="chartData"
+    [options]="chartOptions"
+    [type]="chartType"
+  >
+  </canvas>
+</div>

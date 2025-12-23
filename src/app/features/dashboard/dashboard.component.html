@@ -1,0 +1,96 @@
+<section class="flex flex-col gap-3 flex-wrap">
+  <section class="md:col-span-2">
+    <section
+      class="grid-span-2 flex
+       flex-col 
+       sm:flex-row flex-wrap gap-2 md:justify-between justify-content-start "
+    >
+    <app-card class="flex-1">
+        <h1 h1>Total Revenue</h1>
+        <p price class="font-bold">$$52.6k</p>
+        @if( 0 > 1 ){
+        <span label class="bg-red-200 p-1 rounded-lg text-red-400">
+          -11.3
+        </span>
+        }@else {
+        <span label class="bg-blue-200 p-1 rounded-lg text-blue-400">
+          +11.3
+        </span>
+
+        }
+      </app-card>
+      <app-card class="flex-1">
+        <h1 h1>Today Revenue</h1>
+        <p price class="font-bold">$1024</p>
+        @if( 0 < 1 ){
+        <span label class="bg-red-200 p-1 rounded-lg text-red-400">
+          -11.3
+        </span>
+        }@else {
+        <span label class="bg-blue-200 p-1 rounded-lg text-blue-400">
+          +11.3
+        </span>
+
+        }
+      </app-card>
+      <app-card class="flex-1">
+        <h1 h1>Items Sold</h1>
+        <p price class="font-bold">22</p>
+      </app-card>
+      <app-card class="flex-1">
+        <h1 h1>User Active</h1>
+        <p price class="font-bold">11</p>
+        <p label></p>
+      </app-card>
+    </section>
+    <section class="grid grid-cols-4 gap-2">
+      <div class="col-span-4 lg:col-span-3">
+        @defer (on viewport) {
+        <app-reports [chartData]="salesData" [chartType]="'line'">
+          <h3 name>Report</h3>
+          <ul class="flex gap-5 text-gray-400" li>
+            <li>Day</li>
+            <li>Week</li>
+            <li>Month</li>
+            <li>Year</li>
+          </ul>
+        </app-reports>
+        } @placeholder {
+        <app-loader></app-loader>
+        } @error {
+        <p>خطأ في تحميل المكون</p>
+        }
+      </div>
+      <div class="col-span-4 lg:col-span-1">
+        @defer(on viewport){
+        <app-reports [chartData]="chartData" [chartType]="'bar'">
+          <h3 name>Visits</h3>
+          <!-- <ul class="flex gap-1 focus:text-blue-700" li>
+            <li>Day</li>
+            <li>Week</li>
+            <li>Month</li>
+            <li>Year</li>
+          </ul> -->
+          <ul class="flex gap-10 text-gray-400" li>
+            <li class="active:text-blue-700">D</li>
+            <li>W</li>
+            <li>M</li>
+            <li>Y</li>
+          </ul>
+        </app-reports>
+        }@placeholder{
+        <app-loader></app-loader>
+        }@error{
+        <p>Hmm... Error From Server</p>
+        }
+      </div>
+    </section>
+  </section>
+  <app-header>
+    <h3>Recent Order</h3>
+    <a routerLink="/Order" link class="block text-gray-300">
+      Go To Order Page</a
+    >
+  </app-header>
+  <app-order></app-order>
+</section>
