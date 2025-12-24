@@ -5,11 +5,10 @@
   <section class="flex flex-col justify-center items-center gap-1 mt-1 pb-1">
     @for (item of sidebar; track $index) {
     <a
-      (click)="CheckAuthWithMessage()"
       class="flex lg:justify-start sm:justify-center gap-1 w-[60%] lg:w-[80%] cursor-pointer p-2 rounded text-gray-400 hover:bg-sky-100 hover:text-sky-600 hover:transition"
-      [routerLink]="(CheckAuth() | async) ? ['admin',item.name] : 'admin'"
+      [routerLink]="['admin', item.name]"
       page
-      [routerLinkActive]="(CheckAuth() | async) ? 'active-link' : ''"
+      routerLinkActive="'active-link"
     >
       <span class="inline-block mt-1 sm:text-center">
         <mat-icon>{{ item.iconName }}</mat-icon>

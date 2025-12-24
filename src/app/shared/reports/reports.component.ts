@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { ChartConfiguration, ChartOptions, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 

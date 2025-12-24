@@ -1,11 +1,9 @@
 <section class="flex flex-col gap-3 flex-wrap">
   <section class="md:col-span-2">
     <section
-      class="grid-span-2 flex
-       flex-col 
-       sm:flex-row flex-wrap gap-2 md:justify-between justify-content-start "
+      class="grid-span-2 flex flex-col sm:flex-row flex-wrap gap-2 md:justify-between justify-content-start"
     >
-    <app-card class="flex-1">
+      <app-card class="flex-1">
         <h1 h1>Total Revenue</h1>
         <p price class="font-bold">$$52.6k</p>
         @if( 0 > 1 ){
@@ -47,7 +45,9 @@
       <div class="col-span-4 lg:col-span-3">
         @defer (on viewport) {
         <app-reports [chartData]="salesData" [chartType]="'line'">
-          <h3 name>Report</h3>
+          <h3 name class="px-4 py-2 text-white bg-blue-600 rounded">
+            <a routerLink="admin"> Report </a>
+          </h3>
           <ul class="flex gap-5 text-gray-400" li>
             <li>Day</li>
             <li>Week</li>
@@ -64,13 +64,14 @@
       <div class="col-span-4 lg:col-span-1">
         @defer(on viewport){
         <app-reports [chartData]="chartData" [chartType]="'bar'">
-          <h3 name>Visits</h3>
-          <!-- <ul class="flex gap-1 focus:text-blue-700" li>
-            <li>Day</li>
-            <li>Week</li>
-            <li>Month</li>
-            <li>Year</li>
-          </ul> -->
+          <h3 name>
+            <a
+              routerLink="admin"
+              class="py-2 px-4 rounded text-white bg-blue-600"
+            >
+              Visits
+            </a>
+          </h3>
           <ul class="flex gap-10 text-gray-400" li>
             <li class="active:text-blue-700">D</li>
             <li>W</li>
@@ -87,8 +88,12 @@
     </section>
   </section>
   <app-header>
-    <h3>Recent Order</h3>
-    <a routerLink="/Order" link class="block text-gray-300">
+    <h3 class="my-5">Recent Orders</h3>
+    <a
+      routerLink="admin/orders"
+      link
+      class="block text-white py-2 px-4 rounded bg-blue-600"
+    >
       Go To Order Page</a
     >
   </app-header>

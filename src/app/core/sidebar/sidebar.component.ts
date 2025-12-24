@@ -16,7 +16,7 @@ interface Sidebar {
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [MatIcon, AsyncPipe, RouterLink, RouterLinkActive],
+  imports: [MatIcon, RouterLink, RouterLinkActive],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.scss',
 })
@@ -26,7 +26,6 @@ export class SidebarComponent {
   private SnackBar = inject(SnackbarService);
   collapsed = true;
   sidebar: Sidebar[] = [
-    { name: 'dashboard', iconName: 'home' },
     { name: 'orders', iconName: 'shopping_cart_outlined' },
     { name: 'users', iconName: 'people' },
     { name: 'items', iconName: 'account_balance' },
@@ -40,12 +39,4 @@ export class SidebarComponent {
     return this.authService.CheckStatus();
   }
 
-  CheckAuthWithMessage() {
-    this.authService.CheckStatus().subscribe((res) => {
-      if (!res) this.snackbar();
-    });
-  }
-  snackbar() {
-    this.SnackBar.showMessage('You Have To Login First', 'Close');
-  }
 }

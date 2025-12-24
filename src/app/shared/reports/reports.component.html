@@ -2,11 +2,15 @@
   <section class="flex justify-between m-3">
     <div>
       <h3>
-        <ng-content select="[name]"></ng-content>
+        <ng-content select="[name]">
+        <ng-content></ng-content>
+        </ng-content>
       </h3>
     </div>
     <div>
-       <ng-content select="[li]"></ng-content>
+       <ng-content select="[li]">
+
+       </ng-content>
     </div>
   </section>
   <canvas
