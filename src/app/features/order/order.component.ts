@@ -9,7 +9,6 @@ import {
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { OrdersService } from '../../services/orders.service';
-import { delay } from 'rxjs/operators';
 
 export interface PeriodicElement {
   name: string;
@@ -39,6 +38,7 @@ export class OrderComponent implements OnInit, AfterViewInit {
     'symbol',
     'status',
   ];
+  
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator)

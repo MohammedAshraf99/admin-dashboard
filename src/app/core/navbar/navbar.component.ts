@@ -5,15 +5,19 @@ import { SidebarService } from '../../services/sidebar.service';
 import { AuthService } from '../../services/auth.service';
 import { SnackbarService } from '../../services/snackbar.service';
 import { AsyncPipe, NgClass } from '@angular/common';
+import { SidebarComponent } from "../sidebar/sidebar.component";
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [SearchComponent, ProfileComponent, AsyncPipe, NgClass],
+  imports: [SearchComponent, ProfileComponent,
+     AsyncPipe, NgClass, SidebarComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
+  showbar = false;
+
   private sidebar = inject(SidebarService);
   private authService = inject(AuthService);
   private SnackBar = inject(SnackbarService);
@@ -34,14 +38,13 @@ export class NavbarComponent {
     this.SnackBar.showMessage(message, action);
   }
 
-  showbar = false;
 
   showSideBar() {
     this.showbar = !this.showbar;
-    if (this.showbar) {
-      this.sidebar.open();
-    } else {
-      this.sidebar.close();
-    }
+    // if (this.showbar) {
+    //   this.sidebar.open();
+    // } else {
+    //   this.sidebar.close();
+    // }
   }
 }

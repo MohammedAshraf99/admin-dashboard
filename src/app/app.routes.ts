@@ -25,7 +25,9 @@ export const routes: Routes = [
             (m) => m.UsersComponent
           ),
       },
-      { path: 'items', component: DashboardComponent },
+      { path: 'transactions', loadComponent() {
+        return import('./features/transaction/transaction.component').then(m => m.TransactionComponent);
+      } },
       { path: 'Reports', component: DashboardComponent },
       { path: 'Messages', component: DashboardComponent },
       { path: 'Support', component: DashboardComponent },

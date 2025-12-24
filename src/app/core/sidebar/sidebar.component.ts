@@ -29,10 +29,10 @@ export class SidebarComponent {
     { name: 'orders', iconName: 'shopping_cart_outlined' },
     { name: 'users', iconName: 'people' },
     { name: 'items', iconName: 'account_balance' },
-    { name: 'Tranactions', iconName: 'receipt' },
-    { name: 'Reports', iconName: 'insert_chart' },
-    { name: 'Messages', iconName: 'message' },
-    { name: 'Support', iconName: 'support' },
+    { name: 'transactions', iconName: 'receipt' },
+    { name: 'reports', iconName: 'insert_chart' },
+    { name: 'messages', iconName: 'message' },
+    { name: 'support', iconName: 'support' },
   ];
 
   CheckAuth() {
